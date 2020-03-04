@@ -1,3 +1,61 @@
+
+$day-size: 100px;
+$days: 29, 30, 31;
+$day-on-week: (mon: 1, tue: 2, wed: 3, thu: 4, sat: 5, sun: 6);
+
 body {
   margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+}
+
+.calendar {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: calc((2px + #{$day-size}) * 7);
+  margin: 0 auto;
+  visibility: hidden;
+
+  > div {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: $day-size;
+    height: $day-size;
+    background-color: #eee;
+    border: 1px solid black;
+    margin: 1px;
+
+    @for $i from 1 through 32 {
+      &:nth-child(#{$i})::after {
+        content: "#{$i}";
+      }
+    }
+
+    &:hover {
+      background-color: pink;
+      position: relative;
+      bottom: 20px;
+      cursor: pointer;
+    }
+  }
+}
+
+@each $day in $days {
+  .calendar-#{$day} {
+
+    :nth-child(-n + #{$day}) {
+      visibility: visible;
+    }
+  }
+}
+
+@each $position-day, $n in $day-on-week {
+  .calendar-#{$position-day} {
+
+    :nth-child(1) {
+      margin-left: calc(((2px + #{$day-size}) * #{$n}) + 1px);
+    }
+  }
 }
