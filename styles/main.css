@@ -11,7 +11,15 @@ body {
       flex-wrap: wrap;
   max-width: calc((2px + 100px) * 7);
   margin: 0 auto;
-  visibility: hidden; }
+  visibility: hidden;
+  margin: 0;
+  background: yellow;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%); }
   .calendar > div {
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
