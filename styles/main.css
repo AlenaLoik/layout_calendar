@@ -10,10 +10,8 @@ body {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   max-width: calc((2px + 100px) * 7);
-  margin: 0 auto;
   visibility: hidden;
   margin: 0;
-  background: yellow;
   position: absolute;
   top: 50%;
   left: 50%;
